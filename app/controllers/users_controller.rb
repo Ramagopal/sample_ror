@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 		@user = User.auth(params[:email], params[:password])
 		if @user
 			session[:user_id] = @user.id
-			flash[:notice] = "Logged in"
+			flash[:notice] = "Logged in as: #{@user.name}"
 			redirect_to users_path
 		else
 			flash[:notice] = "Invalid Username/Email or Password"
